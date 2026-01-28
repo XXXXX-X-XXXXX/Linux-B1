@@ -59,7 +59,9 @@ Dernière IP disponible : `10.33.79.254`
 
 #### **B. nmap**
 
-Commande = `nmap -sP 192.168.1.0/24`
+Commande = `nmap -sn 10.33.64.0/20`
+
+Cette commande effectue un "Ping Scan" sur l'ensemble de mon sous-réseau local. Elle permet de lister toutes les machines actuellement actives (avec leurs adresses IP et MAC) sans scanner leurs ports, ce qui m'a permis d'identifier quelles adresses IP étaient déjà utilisées.
 
 ![alt text](image-7.png)
 
@@ -70,6 +72,8 @@ Adresse libre + modification gateway :
 ![](image-9.png)
 
 ![alt text](image-8.png)
+
+Après avoir modifié la gateway par une fausse adresse (ou celle d'un camarade qui ne partage pas sa connexion), je n'ai plus accès à Internet / la page ne charge pas.
 
 ## **III. Manipulations d'autres outils/protocoles côté client**
 
