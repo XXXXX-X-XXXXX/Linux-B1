@@ -10,7 +10,7 @@
 
 commande = `ifconfig en0`
 
-![alt text](image.png)
+![alt text](images/tp2/image.png)
 
 - Nom de l'interface : `en0`
 
@@ -31,13 +31,13 @@ Commande = `route get default | grep gateway`
 
 - gateway = `10.33.79.254`
 
-![alt text](image-2.png)
+![alt text](images/tp2/image-2.png)
 
 ### En graphique (GUI : Graphical User Interface)
 
-![alt text](image-3.png)
+![alt text](images/tp2/image-3.png)
 
-![alt text](image-4.png)
+![alt text](images/tp2/image-4.png)
 
 ### **Questions** : à quoi sert la gateway dans le réseau d'Ingésup ?
 
@@ -53,9 +53,9 @@ Dernière IP disponible : `10.33.79.254`
 
 #### **A. Modification d'adresse IP - pt. 1** : 
 
-![alt text](image-5.png)
+![alt text](images/tp2/image-5.png)
 
-![alt text](image-6.png)
+![alt text](images/tp2/image-6.png)
 
 #### **B. nmap**
 
@@ -63,15 +63,15 @@ Commande = `nmap -sn 10.33.64.0/20`
 
 Cette commande effectue un "Ping Scan" sur l'ensemble de mon sous-réseau local. Elle permet de lister toutes les machines actuellement actives (avec leurs adresses IP et MAC) sans scanner leurs ports, ce qui m'a permis d'identifier quelles adresses IP étaient déjà utilisées.
 
-![alt text](image-7.png)
+![alt text](images/tp2/image-7.png)
 
 #### **C. Modification d'adresse IP - pt. 2**
 
 Adresse libre + modification gateway :
 
-![](image-9.png)
+![](images/tp2/image-9.png)
 
-![alt text](image-8.png)
+![alt text](images/tp2/image-8.png)
 
 Après avoir modifié la gateway par une fausse adresse (ou celle d'un camarade qui ne partage pas sa connexion), je n'ai plus accès à Internet / la page ne charge pas.
 
@@ -95,31 +95,32 @@ Renouvellement de l'IP : `sudo ipconfig set en0 DHCP`
 
 - Trouver l'adresse IP du serveur DNS : `scutil --dns | grep nameserver` 
 
-![alt text](image-10.png)
+
+![alt text](images/tp2/image-10.png)
 
 - dig : 
 
 Pour google : `dig google.com`
 
-![](image-11.png)
+![](images/tp2/image-11.png)
 
 J'ai demandé à mon serveur DNS quelle est l'adresse IP associée au nom google.com. Dans la partie ANSWER SECTION, le serveur m'a répondu que le site se trouve à l'adresse IP : 216.58.213.78. C'est l'adresse d'un des serveurs de Google.
 
 Pour Ynov : `dig ynov.com`
 
-![alt text](image-12.png)
+![alt text](images/tp2/image-12.png)
 
 J'ai demandé l'adresse IP pour ynov.com. Dans la ANSWER SECTION, le serveur m'a renvoyé 3 adresses IP différentes (104.26.11.233, 172.67.74.226, etc.). Cela signifie que le site d'Ynov est hébergé sur plusieurs serveurs en même temps.
 
 Commande = `dig -x 78.78.21.21`
 
-![alt text](image-13.png)
+![alt text](images/tp2/image-13.png)
 
 J'ai demandé à l'annuaire inverse quel nom de domaine correspond à l'IP 78.78.21.21. Dans la ANSWER SECTION, le serveur a trouvé un enregistrement PTR (Pointeur) : host-78-78-21-21.mobileonline.telia.com. Cela signifie que cette IP appartient à l'opérateur Telia
 
 Commande = `dig -x 92.16.54.88`
 
-![alt text](image-14.png)
+![alt text](images/tp2/image-14.png)
 
 J'ai fait la même demande pour l'IP 92.16.54.88. Le serveur a également trouvé un nom : host-92-16-54-88.as13285.net. Cette adresse IP possède donc elle aussi une configuration inverse valide (Reverse DNS).
 
